@@ -1,0 +1,418 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9fafb;
+    min-height: 100vh;
+  }
+  
+  /* Navigation */
+  nav {
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .nav-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .nav-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background: none;
+    color: #4b5563;
+    cursor: pointer;
+    transition: color 0.3s;
+    text-decoration: none;
+  }
+  
+  .nav-button:hover {
+    color: #2563eb;
+  }
+  
+  /* Main content */
+  main {
+    max-width: 1280px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .page {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  /* Show first page by default */
+  #home:target,
+  #hobbies:target,
+  #birthday:target,
+  #contact:target,
+  #travel:target,
+  #cv:target,
+  .page:target {
+    display: block;
+  }
+  
+  /* Show home page when no hash is present */
+  .page:first-of-type {
+    display: block;
+  }
+  
+  .page:target ~ #home {
+    display: none;
+  }
+  
+  /* Style active nav button */
+  .nav-button[href="#home"]:hover,
+  .nav-button[href="#home"]:focus,
+  #home:target ~ nav .nav-button[href="#home"],
+  .nav-button[href="#hobbies"]:hover,
+  .nav-button[href="#hobbies"]:focus,
+  #hobbies:target ~ nav .nav-button[href="#hobbies"],
+  .nav-button[href="#birthday"]:hover,
+  .nav-button[href="#birthday"]:focus,
+  #birthday:target ~ nav .nav-button[href="#birthday"],
+  .nav-button[href="#contact"]:hover,
+  .nav-button[href="#contact"]:focus,
+  #contact:target ~ nav .nav-button[href="#contact"],
+  .nav-button[href="#travel"]:hover,
+  .nav-button[href="#travel"]:focus,
+  #travel:target ~ nav .nav-button[href="#travel"],
+  .nav-button[href="#cv"]:hover,
+  .nav-button[href="#cv"]:focus,
+  #cv:target ~ nav .nav-button[href="#cv"] {
+    color: #2563eb;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Home page */
+  .profile {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .profile-image {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .profile p {
+    color: #4b5563;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* Hobbies page */
+  .hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+  
+  .hobby-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .hobby-card img {
+    width: 100%;
+    height: 16rem;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .hobby-card:hover img {
+    transform: scale(1.1);
+  }
+  
+  .hobby-card h3 {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    color: white;
+    font-size: 1.25rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Birthday page */
+  .birthday-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .birthday-image {
+    width: 100%;
+    height: 24rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+  
+  .birthday-form {
+    margin-top: 2rem;
+  }
+  
+  .birthday-form textarea {
+    width: 100%;
+    height: 8rem;
+    padding: 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    resize: vertical;
+  }
+  
+  .birthday-form button {
+    padding: 0.75rem 1.5rem;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .birthday-form button:hover {
+    background-color: #1d4ed8;
+  }
+  
+  .thank-you {
+    padding: 2rem;
+    background-color: #f0fdf4;
+    border-radius: 0.5rem;
+  }
+  
+  .thank-you h2 {
+    color: #059669;
+    margin-bottom: 1rem;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* Contact page */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+  }
+  
+  .contact-form textarea {
+    height: 8rem;
+    resize: vertical;
+  }
+  
+  .contact-form button {
+    padding: 0.75rem 1.5rem;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .contact-form button:hover {
+    background-color: #1d4ed8;
+  }
+  
+  .social-links {
+    padding: 2rem;
+  }
+  
+  .social-links h3 {
+    margin-bottom: 1rem;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .social-icon {
+    color: #4b5563;
+    transition: color 0.3s;
+  }
+  
+  .social-icon:hover {
+    color: #2563eb;
+  }
+  
+  /* Travel page */
+  .slider-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 0.5rem;
+  }
+  
+  .slider {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .slide {
+    min-width: 100%;
+    position: relative;
+  }
+  
+  .slide img {
+    width: 100%;
+    height: 24rem;
+    object-fit: cover;
+  }
+  
+  .slide h3 {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .slider-btn:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .prev {
+    left: 1rem;
+  }
+  
+  .next {
+    right: 1rem;
+  }
+  
+  /* CV page */
+  .cv-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .cv-section {
+    margin-bottom: 2rem;
+  }
+  
+  .cv-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #1f2937;
+  }
+  
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  
+  .skill {
+    background-color: #f3f4f6;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    text-align: center;
+  }
+  
+  .experience {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .job h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .job .date {
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .nav-container {
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .social-links {
+      text-align: center;
+    }
+  
+    .social-icons {
+      justify-content: center;
+    }
+  }
+
+
+
+  
