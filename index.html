@@ -99,6 +99,7 @@
           </div>
         </div>
       </div>
+      
     </section>
 
     <section id="travel" class="page">
@@ -166,49 +167,7 @@
     </section>
   </main>
 
-  <script>
-    // Birthday page
-    document.querySelector('#birthday').addEventListener('click', function() {
-      const birthdayImage = document.querySelector('.birthday-image');
-      const birthdayForm = document.querySelector('.birthday-form');
-      const thankYou = document.querySelector('.thank-you');
-      
-      birthdayImage.style.display = 'block';
-      birthdayForm.classList.add('hidden');
-      thankYou.classList.add('hidden');
-      
-      setTimeout(() => {
-        birthdayImage.style.display = 'none';
-        birthdayForm.classList.remove('hidden');
-      }, 5000);
-    });
-
-    document.querySelector('.birthday-form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const message = e.target.querySelector('textarea').value;
-      document.querySelector('.message-content').textContent = message;
-      e.target.classList.add('hidden');
-      document.querySelector('.thank-you').classList.remove('hidden');
-    });
-
-    // Slider
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const totalSlides = slides.length;
-
-    document.querySelector('.next').addEventListener('click', () => {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      updateSlider();
-    });
-
-    document.querySelector('.prev').addEventListener('click', () => {
-      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-      updateSlider();
-    });
-
-    function updateSlider() {
-      document.querySelector('.slider').style.transform = `translateX(-${currentSlide * 100}%)`;
-    }
-  </script>
+  
+     
 </body>
 </html>
